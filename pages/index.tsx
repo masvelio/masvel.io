@@ -10,25 +10,27 @@ import {
   Heading,
   UnorderedList,
   ListItem,
+  Image,
 } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 import notion from "../utils/notion.service";
+// import logo from "../assets/images/logo-masvel.svg" ;
 
 export type Post = { id: string; slug: string; title: string };
 
 const StickyNav = styled(Flex)`
   position: sticky;
-  z-index: 10;
+  z-index: 100;
   top: 0;
-  backdrop-filter: saturate(180%) blur(20px);
-  transition: background-color 0.1s ease-in-out;
+  backdrop-filter: blur(3px);
+  opacity: 0.9;
 `;
 
 const navBgColor = {
-  light: "rgba(255, 255, 255, 0.8)",
-  dark: "rgba(23, 25, 35, 0.8)",
+  light: "rgba(255, 255, 255, 0.9)",
+  dark: "rgba(26, 32, 44, 1)",
 };
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -47,39 +49,44 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
   return (
     <>
       <StickyNav
-        flexDirection="row"
-        justifyContent="space-between"
-        alignItems="center"
-        maxWidth="900px"
-        width="100%"
         bg={navBgColor[colorMode]}
         as="nav"
-        p={8}
+        justify="center"
+        p={6}
         mt={[0, 8]}
         mb={8}
-        mx="auto"
       >
-        <Box as="span">LOGO</Box>
-        <Flex>
-          <Box mr={2}>
-            <NextLink href="/blog" passHref>
-              <Button as="a" variant="ghost" p={[1, 4]}>
-                Blog
-              </Button>
-            </NextLink>
-            <NextLink href="/about" passHref>
-              <Button as="a" variant="ghost" p={[1, 4]}>
-                About
-              </Button>
-            </NextLink>
-          </Box>
-          <Box>
-            <IconButton
-              aria-label="Toggle dark mode"
-              icon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
-              onClick={toggleColorMode}
+        <Flex
+          justify="space-between"
+          alignItems="center"
+          maxWidth={["sm", "lg", "4xl"]}
+          width="100%"
+        >
+          <Box w={["100px", "150px"]}>
+            <Image
+              src={
+                colorMode === "dark"
+                  ? "/images/logo-masvel-light.svg"
+                  : "/images/logo-masvel.svg"
+              }
             />
           </Box>
+          <Flex>
+            <Box mr={2}>
+              <NextLink href="/blog" passHref>
+                <Button as="a" variant="ghost" p={[1, 4]}>
+                  Blog
+                </Button>
+              </NextLink>
+            </Box>
+            <Box>
+              <IconButton
+                aria-label="Toggle dark mode"
+                icon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
+                onClick={toggleColorMode}
+              />
+            </Box>
+          </Flex>
         </Flex>
       </StickyNav>
 
@@ -87,10 +94,10 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
         <Heading size="2xl" mb="4">
           Welcome to my blog
         </Heading>
+
         <Heading size="xl" mb="4">
           These are my recent posts:
         </Heading>
-
         <UnorderedList>
           {posts.map((post) => (
             <ListItem key={post.slug}>
