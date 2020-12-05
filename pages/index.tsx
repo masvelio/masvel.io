@@ -36,7 +36,7 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
     <>
       <MainContainer>
         <Flex flexDirection="column">
-          <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
+          <Heading mb={2} as="h1" size="2xl">
             Hi, this is Masvel
           </Heading>
           <Text color={secondaryTextColor[colorMode]}>I’m a developer....</Text>

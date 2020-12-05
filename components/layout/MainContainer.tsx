@@ -17,6 +17,7 @@ const StickyNav = styled(Flex)`
   top: 0;
   opacity: 0.9;
   backdrop-filter: blur(3px);
+  transition: 0.1s ease-in-out;
 `;
 
 const StyledBox = styled(Box)`
@@ -26,8 +27,8 @@ const StyledBox = styled(Box)`
 `;
 
 const navBgColor = {
-  light: "rgba(255, 255, 255, 0.9)",
-  dark: "rgba(26, 32, 44, 1)",
+  light: "rgba(255, 255, 255, .9)",
+  dark: "rgba(16, 8, 24, .6)",
 };
 
 const MainContainer = ({ children }) => {
