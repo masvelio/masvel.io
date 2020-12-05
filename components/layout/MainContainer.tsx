@@ -1,13 +1,13 @@
 import {
   Box,
-  Button,
   Flex,
   IconButton,
   Image,
   useColorMode,
   Text,
+  Stack,
 } from "@chakra-ui/react";
-import NextLink from "next/link";
+import Link from "next/link";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import styled from "@emotion/styled";
 
@@ -15,8 +15,14 @@ const StickyNav = styled(Flex)`
   position: sticky;
   z-index: 100;
   top: 0;
-  backdrop-filter: blur(3px);
   opacity: 0.9;
+  backdrop-filter: blur(3px);
+`;
+
+const StyledBox = styled(Box)`
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const navBgColor = {
@@ -30,35 +36,31 @@ const MainContainer = ({ children }) => {
   return (
     <>
       <StickyNav
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="center"
+        maxWidth="4xl"
+        width="100%"
         bg={navBgColor[colorMode]}
         as="nav"
-        justify="center"
-        p={6}
-        mb={[0]}
+        p={[6, 8]}
+        mt={[0, 8]}
+        mb={8}
+        mx="auto"
       >
-        <Flex
-          justify="space-between"
-          alignItems="center"
-          maxWidth={["sm", "lg", "4xl"]}
-          width="100%"
-        >
-          <Box minW="100px" w={["100px", "150px"]}>
-            <Image
-              src={
-                colorMode === "dark"
-                  ? "/images/logo-masvel-light.svg"
-                  : "/images/logo-masvel.svg"
-              }
-            />
-          </Box>
+        <Flex justify="space-between" alignItems="center" w="100%">
+          <StyledBox minW={24} w={[24, 40]}>
+            <Link href={"/"}>
+              <Image
+                src={
+                  colorMode === "dark"
+                    ? "/images/logo-masvel-light.svg"
+                    : "/images/logo-masvel.svg"
+                }
+              />
+            </Link>
+          </StyledBox>
           <Flex>
-            <Box mr={2}>
-              <NextLink href="/blog" passHref>
-                <Button as="a" variant="ghost" p={[1, 4]}>
-                  Blog
-                </Button>
-              </NextLink>
-            </Box>
             <Box>
               <IconButton
                 aria-label="Toggle dark mode"
@@ -69,8 +71,17 @@ const MainContainer = ({ children }) => {
           </Flex>
         </Flex>
       </StickyNav>
+
       <Flex as="main" justifyContent="center" flexDirection="column" px={6}>
-        {children}
+        <Stack
+          spacing={8}
+          justifyContent="center"
+          alignItems="flex-start"
+          m={[0, "0 auto"]}
+          w={["full", "2xl"]}
+        >
+          {children}
+        </Stack>
         <Flex justify="center" mt="8">
           <Text>This is footer</Text>
         </Flex>

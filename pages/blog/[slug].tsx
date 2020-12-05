@@ -2,6 +2,8 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import { NotionRenderer, BlockMapType } from "react-notion";
 
 import notion from "../../utils/notion.service";
+import MainContainer from "../../components/layout/MainContainer";
+import { Flex, Heading } from "@chakra-ui/react";
 
 export type Post = { id: string; slug: string; title: string };
 
@@ -23,8 +25,17 @@ const BlogPost: React.FC<{ post: Post; blocks: BlockMapType }> = ({
   blocks,
 }) => (
   <>
-    <h1>{post.title}</h1>
-    <NotionRenderer blockMap={blocks} />
+    <MainContainer>
+      <Flex flexDirection="column">
+        <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
+          {post.title}
+        </Heading>
+      </Flex>
+
+      <Flex flexDirection="column" mt={8} w="full">
+        <NotionRenderer blockMap={blocks} />
+      </Flex>
+    </MainContainer>
   </>
 );
 

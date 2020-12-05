@@ -10,7 +10,7 @@ import "../styles.css";
 const styles = {
   global: (props) => ({
     ".notion": {
-      color: props.colorMode === "dark" ? "red.500" : "green.600",
+      color: props.colorMode === "dark" ? "white" : "",
     },
   }),
 };
