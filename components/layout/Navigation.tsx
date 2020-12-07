@@ -25,8 +25,8 @@ const StyledBox = styled(Box)`
 `;
 
 const navBgColor = {
-  light: "rgba(255, 255, 255, .9)",
-  dark: "rgba(16, 8, 24, .6)",
+  light: "whiteAlpha.900",
+  dark: "purple.1000:alpha",
 };
 
 const Navigation = () => {

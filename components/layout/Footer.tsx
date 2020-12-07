@@ -3,7 +3,7 @@ import { Box, Flex, IconButton, Link, Text } from "@chakra-ui/react";
 import { GithubIcon, MailIcon } from "../../utils/iconBuilder";
 
 const Footer = () => (
-  <Flex align="center" mt={4} direction="column">
+  <Flex align="center" my={4} direction="column">
     <Box>
       <Link href="mailto:me@masvel.io" title="Email" isExternal>
         <IconButton
