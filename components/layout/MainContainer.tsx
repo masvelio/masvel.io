@@ -13,7 +13,8 @@ const MainContainer = ({ children }) => (
         justifyContent="center"
         alignItems="flex-start"
         m={[0, "0 auto"]}
-        w={["full", "2xl"]}
+        maxW={["full", "2xl"]}
+        w="full"
       >
         {children}
       </Stack>

@@ -38,7 +38,6 @@ const Navigation = () => {
       as="nav"
       p={[6, 8]}
       mt={[0, 8]}
-      mb={8}
       mx="auto"
     >
       <Flex justify="space-between" alignItems="center" w="100%">

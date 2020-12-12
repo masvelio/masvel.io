@@ -26,7 +26,7 @@ const BlogPost: React.FC<{ post: Post; blocks: BlockMapType }> = ({
 }) => (
   <>
     <MainContainer>
-      <Flex flexDirection="column">
+      <Flex flexDirection="column" mt={8}>
         <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
           {post.title}
         </Heading>
