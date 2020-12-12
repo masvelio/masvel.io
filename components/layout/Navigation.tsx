@@ -1,13 +1,9 @@
-import {
-  Box,
-  Flex,
-  IconButton,
-  Image,
-  Link,
-  useColorMode,
-} from "@chakra-ui/react";
+import { Box, Flex, IconButton, Link, useColorMode } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import styled from "@emotion/styled";
+import NextLink from "next/link";
+
+import MasvelLogo from "../shared/MasvelLogo";
 
 const StickyNav = styled(Flex)`
   position: sticky;
@@ -47,15 +43,11 @@ const Navigation = () => {
     >
       <Flex justify="space-between" alignItems="center" w="100%">
         <StyledBox minW={24} w={[24, 40]}>
-          <Link href={"/"}>
-            <Image
-              src={
-                colorMode === "dark"
-                  ? "/images/logo-masvel-light.svg"
-                  : "/images/logo-masvel.svg"
-              }
-            />
-          </Link>
+          <NextLink href="/">
+            <Link>
+              <MasvelLogo color={colorMode === "dark" ? "white" : "#353f4b"} />
+            </Link>
+          </NextLink>
         </StyledBox>
         <Flex>
           <Box>
