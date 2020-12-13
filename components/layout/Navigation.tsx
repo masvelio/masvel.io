@@ -48,7 +48,10 @@ const Navigation = () => {
             </Link>
           </NextLink>
         </StyledBox>
-        <Flex>
+        <Flex alignItems="center">
+          <Box mx={4}>
+            <NextLink href="/about">About</NextLink>
+          </Box>
           <Box>
             <IconButton
               aria-label="Toggle dark mode"

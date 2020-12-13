@@ -5,6 +5,7 @@ const styles = {
     body: {
       color: props.colorMode === "dark" ? "white" : "gray.font",
       background: props.colorMode === "dark" ? "purple.1000" : "white",
+      fontSize: ["md", "lg"],
     },
     ".notion": {
       color: props.colorMode === "dark" ? "white" : "gray.font",
@@ -22,6 +23,15 @@ const styles = {
     },
     ".notion-h3": {
       fontSize: ["2xl", "3xl"],
+    },
+    ".notion-link": {
+      background: props.colorMode === "dark" ? "purple.700" : "purple.100",
+      padding: "0 4px",
+      fontWeight: "bold",
+      textDecoration: "none",
+      _hover: {
+        textDecoration: "underline",
+      },
     },
   }),
 };
