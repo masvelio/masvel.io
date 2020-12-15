@@ -51,4 +51,11 @@ const colors = {
   },
 };
 
-export default extendTheme({ styles, fonts, colors });
+const shadows = {
+  mdLight:
+    "0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06)",
+  lgLight:
+    "0 10px 15px -3px rgba(255, 255, 255, 0.1), 0 4px 6px -2px rgba(255, 255, 255, 0.05)",
+};
+
+export default extendTheme({ styles, fonts, colors, shadows });

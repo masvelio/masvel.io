@@ -33,7 +33,12 @@ const AboutPage = () => {
             JAM Stack
           </TextLink>{" "}
           architecture. Apart from Javascript I like to explore in relational
-          databases or play around in DevOps area, mainly with AWS.
+          databases or play around in DevOps area, mainly with AWS. Besides
+          programming, I&apos;m a big fan of{" "}
+          <TextLink href={"https://www.notion.so/"} isExternal>
+            Notion
+          </TextLink>
+          , so much so that this blog works with Notion as CMS.
         </Text>
         <Heading>My blog 📖</Heading>
         <Text>
@@ -44,12 +49,11 @@ const AboutPage = () => {
           <TextLink href={"https://www.indiehackers.com/"} isExternal>
             indie way
           </TextLink>
-          . I will explore the problem of building
-          startup/application/product/(you name it) starting from gathering
-          knowledge about it, creating an idea, building it and shipping it. I
-          am very curious what will come out of it, because at the moment I
-          don&apos;t have a concrete plan for the next months. Bear with me to
-          find out!
+          . I will explore the problem of building startup / application /
+          product / (you name it) starting from gathering knowledge about it,
+          creating an idea, building it and shipping it. I am very curious what
+          will come out of it, because at the moment I don&apos;t have a
+          concrete plan for the next months. Bear with me to find out!
         </Text>
         <Heading>My life 🌍</Heading>
         <Text>
@@ -69,8 +73,8 @@ const AboutPage = () => {
         <Heading>My mail 📬</Heading>
         <Text>
           Do not hesitate to contact me about anything. I will be happy to
-          answer you. See you later! Just use my email address from the footer
-          below.
+          answer you. Just use my email address from the footer below. See you
+          later!
         </Text>
       </MainContainer>
     </>

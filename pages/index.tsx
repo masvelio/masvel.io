@@ -1,20 +1,11 @@
 import { GetStaticProps } from "next";
-import NextLink from "next/link";
-import {
-  Heading,
-  UnorderedList,
-  ListItem,
-  Flex,
-  Text,
-  AspectRatio,
-  Box,
-} from "@chakra-ui/react";
+import { Heading, Flex, Text, AspectRatio, Box } from "@chakra-ui/react";
 
 import notion from "../utils/notion.service";
 import MainContainer from "../components/layout/MainContainer";
 import BackgroundBlob from "../components/layout/BackgroundBlob";
-
-export type Post = { id: string; slug: string; title: string };
+import PostsList from "../components/shared/PostsList";
+import { Post } from "../types/Post";
 
 export const getStaticProps: GetStaticProps = async () => {
   const table = await notion.getTable();
@@ -43,21 +34,9 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
             </Flex>
           </Box>
         </AspectRatio>
+        <Heading size="xl">Recent Blog Posts</Heading>
 
-        <Flex flexDirection="column" mt={4} w="full">
-          <Heading mb={4} size="xl">
-            Most Popular Blog Posts
-          </Heading>
-          <UnorderedList>
-            {posts.map((post) => (
-              <ListItem key={post.slug}>
-                <NextLink href={"/blog/[slug]"} as={`/blog/${post.slug}`}>
-                  <a>{post.title}</a>
-                </NextLink>
-              </ListItem>
-            ))}
-          </UnorderedList>
-        </Flex>
+        <PostsList posts={posts} limit={2} />
       </MainContainer>
     </>
   );

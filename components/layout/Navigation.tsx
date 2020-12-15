@@ -49,10 +49,13 @@ const Navigation = () => {
           </NextLink>
         </StyledBox>
         <Flex alignItems="center">
-          <Box mx={4}>
+          <Box mx={[2, 4]}>
+            <NextLink href="/blog">Blog</NextLink>
+          </Box>
+          <Box mx={[2, 4]}>
             <NextLink href="/about">About</NextLink>
           </Box>
-          <Box>
+          <Box ml={[1, 4]}>
             <IconButton
               aria-label="Toggle dark mode"
               icon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
