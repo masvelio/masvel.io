@@ -3,7 +3,8 @@ import { NotionRenderer, BlockMapType } from "react-notion";
 
 import notion from "../../utils/notion.service";
 import MainContainer from "../../components/layout/MainContainer";
-import { Flex, Heading } from "@chakra-ui/react";
+import { Flex, Heading, Tag } from "@chakra-ui/react";
+import { formatDate } from "../../utils/dates";
 
 export type Post = { id: string; slug: string; title: string };
 
@@ -16,28 +17,37 @@ export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
     props: {
       post,
       blocks,
+      table,
     },
   };
 };
 
-const BlogPost: React.FC<{ post: Post; blocks: BlockMapType }> = ({
-  post,
-  blocks,
-}) => (
-  <>
-    <MainContainer>
-      <Flex flexDirection="column" mt={8}>
-        <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
-          {post.title}
-        </Heading>
-      </Flex>
+const BlogPost: React.FC<{
+  post: Post;
+  blocks: BlockMapType;
+  table: any[];
+}> = ({ post, blocks, table }) => {
+  const rawDate = table.find((el) => el.id === post.id)?.date;
+  const displayDate = formatDate(rawDate);
 
-      <Flex flexDirection="column" mt={8} w="full">
-        <NotionRenderer blockMap={blocks} />
-      </Flex>
-    </MainContainer>
-  </>
-);
+  return (
+    <>
+      <MainContainer>
+        <Flex flexDirection="column" mt={8}>
+          <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
+            {post.title}
+          </Heading>
+        </Flex>
+        <Tag mt={2} w="auto">
+          {displayDate}
+        </Tag>
+        <Flex flexDirection="column" mt={8} w="full">
+          <NotionRenderer blockMap={blocks} />
+        </Flex>
+      </MainContainer>
+    </>
+  );
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const table = await notion.getTable();
