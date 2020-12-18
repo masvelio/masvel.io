@@ -1,5 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import { NotionRenderer, BlockMapType } from "react-notion";
+import { renderToString } from "react-dom/server";
 
 import notion from "../../utils/notion.service";
 import MainContainer from "../../components/layout/MainContainer";
@@ -29,6 +30,11 @@ const BlogPost: React.FC<{
 }> = ({ post, blocks, table }) => {
   const rawDate = table.find((el) => el.id === post.id)?.date;
   const displayDate = formatDate(rawDate);
+  const htmlString = renderToString(<NotionRenderer blockMap={blocks} />);
+  const asd = htmlString.replace(
+    /class="notion-link"/gi,
+    'class="notion-link" target="_blank" rel="noopener noreferrer"',
+  );
 
   return (
     <>
@@ -42,7 +48,8 @@ const BlogPost: React.FC<{
           {displayDate}
         </Tag>
         <Flex flexDirection="column" mt={8} w="full">
-          <NotionRenderer blockMap={blocks} />
+          <div dangerouslySetInnerHTML={{ __html: asd }} />
+          {/*<NotionRenderer blockMap={blocks} />*/}
         </Flex>
       </MainContainer>
     </>
