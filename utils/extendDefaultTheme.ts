@@ -21,16 +21,14 @@ const styles = {
     ".notion-h2": {
       fontSize: ["3xl", "4xl"],
       position: "relative",
-      display: "inline-block",
-    },
-    ".notion-h2:before": {
-      content: "''",
-      position: "absolute",
-      width: "100%",
-      background: props.colorMode === "dark" ? "purple.900" : "purple.100",
-      height: "18px",
-      bottom: "2px",
-      "z-index": "-10",
+      display: "inline",
+      backgroundImage:
+        props.colorMode === "dark"
+          ? `linear-gradient(120deg, ${props.theme.colors.pink["800"]} 0%, ${props.theme.colors.blue["800"]} 100%)`
+          : `linear-gradient(120deg, ${props.theme.colors.pink["100"]} 0%, ${props.theme.colors.blue["100"]} 100%)`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "100% 0.4em",
+      backgroundPosition: "0 88%",
     },
     ".notion-h3": {
       fontSize: ["2xl", "3xl"],
