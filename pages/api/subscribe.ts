@@ -3,11 +3,16 @@
 export default async ({ method, body: { email, name } }, res) => {
   if (method === "POST") {
     if (!email || !name) {
+      console.log("email", email);
+      console.log("name", name);
       return res.status(400).json({ error: "Email and name are required" });
     }
 
     try {
       const { MAILCHIMP_LIST_ID, MAILCHIMP_API_KEY, VERCEL_ENV } = process.env;
+      console.log("MAILCHIMP_LIST_ID", MAILCHIMP_LIST_ID);
+      console.log("MAILCHIMP_API_KEY", MAILCHIMP_API_KEY);
+      console.log("VERCEL_ENV", VERCEL_ENV);
       const DATACENTER = MAILCHIMP_API_KEY.split("-")[1];
       const tags = VERCEL_ENV === "production" ? ["prod"] : ["dev"];
 
@@ -21,6 +26,7 @@ export default async ({ method, body: { email, name } }, res) => {
         status: "pending",
       };
 
+      console.log("before **");
       const apiResponse = await fetch(
         `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${MAILCHIMP_LIST_ID}/members`,
         {
@@ -34,6 +40,7 @@ export default async ({ method, body: { email, name } }, res) => {
       );
 
       const response = await apiResponse.json();
+      console.log("response", response);
 
       if (response.status >= 400) {
         return res.status(400).json({
@@ -46,7 +53,7 @@ export default async ({ method, body: { email, name } }, res) => {
 
       return res.sendStatus(201);
     } catch (error) {
-      console.error(error);
+      console.log(error);
       return res.status(500).json({ error: error.message || error.toString() });
     }
   }
