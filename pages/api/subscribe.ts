@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/camelcase */
+import { NextApiRequest, NextApiResponse } from "next";
 
-export default async ({ method, body: { email, name } }, res) => {
+export default async (
+  { method, body: { email, name } }: NextApiRequest,
+  res: NextApiResponse,
+) => {
   if (method === "POST") {
     if (!email || !name) {
       console.log("email", email);
@@ -51,7 +55,7 @@ export default async ({ method, body: { email, name } }, res) => {
         });
       }
 
-      return res.sendStatus(201);
+      return res.status(201).end();
     } catch (error) {
       console.log(error);
       return res.status(500).json({ error: error.message || error.toString() });
