@@ -73,6 +73,8 @@ const shadows = {
     "0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06)",
   lgLight:
     "0 10px 15px -3px rgba(255, 255, 255, 0.1), 0 4px 6px -2px rgba(255, 255, 255, 0.05)",
+  "light-lg":
+    "rgba(255, 255, 255, 0.1) 0px 0px 0px 1px, rgba(255, 255, 255, 0.2) 0px 5px 10px, rgba(255, 255, 255, 0.4) 0px 15px 40px",
 };
 
 export default extendTheme({ styles, fonts, colors, shadows });

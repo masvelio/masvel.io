@@ -1,10 +1,11 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import { NotionRenderer, BlockMapType } from "react-notion";
+import { Flex, Heading, Tag } from "@chakra-ui/react";
 
 import notion from "../../utils/notion.service";
 import MainContainer from "../../components/layout/MainContainer";
-import { Flex, Heading, Tag } from "@chakra-ui/react";
 import { formatDate } from "../../utils/dates";
+import SubscriptionBox from "../../components/shared/SubscriptionBox";
 
 export type Post = { id: string; slug: string; title: string };
 
@@ -43,6 +44,9 @@ const BlogPost: React.FC<{
         </Tag>
         <Flex flexDirection="column" mt={8} w="full">
           <NotionRenderer blockMap={blocks} />
+        </Flex>
+        <Flex mb={16}>
+          <SubscriptionBox />
         </Flex>
       </MainContainer>
     </>
