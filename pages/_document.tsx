@@ -19,6 +19,8 @@ class MyDocument extends Document {
             gtag('js', new Date());
             gtag('config', '${GA_TRACKING_ID}', {
               page_path: window.location.pathname,
+              page_title: window.location.pathname,
+              page_location: window.location.pathname,
             });
           `,
             }}
