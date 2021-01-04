@@ -6,7 +6,13 @@ import { Post } from "../../types/Post";
 
 const DAYS_3 = 259200000;
 
-const PostsList = ({ posts, limit }: { posts: Post[]; limit?: number }) => {
+const PostsList = ({
+  posts = [],
+  limit,
+}: {
+  posts: Post[];
+  limit?: number;
+}) => {
   const { colorMode } = useColorMode();
   const boxShadows = colorMode === "light" ? ["lg", "md"] : ["mdLight"];
 
