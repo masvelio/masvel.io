@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://masvel.io/sitemap.xml
