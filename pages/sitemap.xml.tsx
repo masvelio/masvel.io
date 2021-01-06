@@ -17,7 +17,7 @@ const Sitemap = () => {};
 
 Sitemap.getInitialProps = async ({ res, req }) => {
   // manually add new pages
-  const routes = ["", "/blog", "/about"];
+  const routes = ["", "/blog", "/about", "/subscribe"];
   const table = await notion.getTable();
   const posts = table.map((el) => el.slug);
   const sitemap = createSitemap(req.headers.host, routes, posts);
