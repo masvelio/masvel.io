@@ -1,8 +1,8 @@
-import { API_URL, NOTION_BLOG_ID } from "./config";
+import { NOTION_WORKER_URL, NOTION_BLOG_ID, VERCEL_ENV } from "./config";
 
 const getPage = async (id: string) => {
   try {
-    const response = await fetch(`${API_URL}/page/${id}`);
+    const response = await fetch(`${NOTION_WORKER_URL}/page/${id}`);
     const page = await response.json();
 
     // API does not return http error for bad route
@@ -18,8 +18,14 @@ const getPage = async (id: string) => {
 
 const getTable = async () => {
   try {
-    const response = await fetch(`${API_URL}/table/${NOTION_BLOG_ID}`);
-    const table = await response.json();
+    const response = await fetch(
+      `${NOTION_WORKER_URL}/table/${NOTION_BLOG_ID}`,
+    );
+    const allPosts = await response.json();
+    // local & prod are checkboxes in notion
+    const table = allPosts.filter((post) =>
+      VERCEL_ENV ? post.local && post.prod : post.local,
+    );
 
     // API does not return http error for bad route
     if (table.error) {
