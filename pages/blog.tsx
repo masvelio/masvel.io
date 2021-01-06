@@ -1,6 +1,7 @@
 import { Heading, Text, Box } from "@chakra-ui/react";
 import MainContainer from "../components/layout/MainContainer";
 import { GetStaticProps } from "next";
+import { NextSeo } from "next-seo";
 
 import notion from "../utils/notion.service";
 import PostsList from "../components/shared/PostsList";
@@ -19,6 +20,10 @@ export const getStaticProps: GetStaticProps = async () => {
 const BlogPage = ({ posts }: { posts: Post[] }) => {
   return (
     <>
+      <NextSeo
+        title="Blog"
+        description="I share my thoughts about ideas on products, about building JAM Stack applications and about shipping them in indie way."
+      />
       <MainContainer>
         <Heading mt={[0, 6]} size="2xl" as="h1">
           Blog

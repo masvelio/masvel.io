@@ -1,4 +1,5 @@
 import { Heading, Text, Box } from "@chakra-ui/react";
+import { NextSeo } from "next-seo";
 
 import MainContainer from "../components/layout/MainContainer";
 import { TextLink } from "../components/shared/TextLink";
@@ -6,6 +7,10 @@ import { TextLink } from "../components/shared/TextLink";
 const AboutPage = () => {
   return (
     <>
+      <NextSeo
+        title="About me"
+        description="I am full stack javascript developer and I am bootstrapping products with JAM Stack in indie way."
+      />
       <MainContainer>
         <Heading mt={[0, 6]} size="2xl" as="h1">
           About
