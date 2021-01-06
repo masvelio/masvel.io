@@ -1,6 +1,12 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import { NextApiRequest, NextApiResponse } from "next";
 
+import {
+  MAILCHIMP_LIST_ID,
+  MAILCHIMP_API_KEY,
+  VERCEL_ENV,
+} from "../../utils/config";
+
 export default async (
   { method, body: { email, name } }: NextApiRequest,
   res: NextApiResponse,
@@ -11,7 +17,6 @@ export default async (
     }
 
     try {
-      const { MAILCHIMP_LIST_ID, MAILCHIMP_API_KEY, VERCEL_ENV } = process.env;
       const DATACENTER = MAILCHIMP_API_KEY.split("-")[1];
       const tags = VERCEL_ENV === "production" ? ["prod"] : ["dev"];
 
