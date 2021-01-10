@@ -10,7 +10,7 @@ const seoConfig = {
   canonical: "https://masvel.io",
   openGraph: {
     type: "website",
-    locale: "en_IE",
+    locale: "en_GB",
     url: "https://masvel.io",
     title,
     description,
