@@ -14,6 +14,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       posts: table,
     },
+    revalidate: 10,
   };
 };
 
@@ -32,7 +33,9 @@ const BlogPage = ({ posts }: { posts: Post[] }) => {
         <Box>
           <Text>
             Welcome to my blog. Here you can find the list of the all posts I
-            have written since the very beginning.
+            have written since the very beginning. I write about the whole
+            process of bootstrapping products in indie way as a maker with JAM
+            Stack architecture.
           </Text>
         </Box>
         <Heading>All Posts</Heading>
