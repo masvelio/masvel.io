@@ -4,4 +4,5 @@ export type Post = {
   title: string;
   date: string;
   intro: string;
+  seoDescription: string;
 };

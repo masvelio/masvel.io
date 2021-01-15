@@ -1,13 +1,13 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import { NotionRenderer, BlockMapType } from "react-notion";
 import { Flex, Heading, Tag } from "@chakra-ui/react";
+import { NextSeo } from "next-seo";
 
-import notion from "../../utils/notion.service";
 import MainContainer from "../../components/layout/MainContainer";
-import { formatDate } from "../../utils/dates";
 import SubscriptionBox from "../../components/shared/SubscriptionBox";
-
-export type Post = { id: string; slug: string; title: string };
+import notion from "../../utils/notion.service";
+import { formatDate } from "../../utils/dates";
+import { Post } from "../../types/Post";
 
 export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
   const table = await notion.getTable();
@@ -34,6 +34,7 @@ const BlogPost: React.FC<{
 
   return (
     <>
+      <NextSeo title={post.title} description={post.seoDescription} />
       <MainContainer>
         <Flex flexDirection="column" mt={8}>
           <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
