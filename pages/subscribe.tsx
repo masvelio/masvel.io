@@ -9,7 +9,7 @@ const Subscribe = () => {
     <>
       <NextSeo
         title="Subscribe"
-        description="Enroll to my newsletter to get fresh updates on new ideas, products and other things related to bootstrapping products in indie way with JAM stack."
+        description="Enroll to my newsletter to get fresh updates on new ideas, products and other things related to bootstrapping products in indie way with Jamstack."
       />
       <MainContainer>
         <Heading mt={[0, 6]} size="2xl" as="h1">

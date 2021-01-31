@@ -23,7 +23,7 @@ const BlogPage = ({ posts }: { posts: Post[] }) => {
     <>
       <NextSeo
         title="Blog"
-        description="I share my thoughts about ideas on products, about building JAM Stack applications and about shipping them in indie way."
+        description="I share my thoughts about ideas on products, about building Jamstack applications and about shipping them in indie way."
       />
       <MainContainer>
         <Heading mt={[0, 6]} size="2xl" as="h1">
