@@ -97,7 +97,7 @@ const SubscriptionBox = ({ isColorMode = true, isBlogPost = true }) => {
       {isBlogPost && <Heading mb={4}>Hey, did you like the post?</Heading>}
       <FormLabel>
         Join the list and get periodic updates about bootstrapping products with
-        JAM Stack architecture articles, upcoming projects handled in indie way
+        Jamstack architecture articles, upcoming projects handled in indie way
         as a maker and other interesting things. This also will help me to keep
         improving the content 🙏
       </FormLabel>

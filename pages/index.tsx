@@ -44,7 +44,7 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
         <Text>
           I am Masvel and you are here probably as you want to know how to{" "}
           <Text as={"h1"} style={{ display: "inline" }}>
-            build and ship products using JAM Stack architecture
+            build and ship products using Jamstack architecture
           </Text>
           . I write about the whole{" "}
           <Text as={"h2"} style={{ display: "inline" }}>
@@ -54,7 +54,7 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
           </Text>
           . Make yourself comfortable here. Find more information{" "}
           <TextLink href={"/about"}>about me</TextLink> or check the{" "}
-          <TextLink href={"/blog"}>latest posts</TextLink> about JAM Stack,
+          <TextLink href={"/blog"}>latest posts</TextLink> about Jamstack,
           bootstrapping and other topics.
         </Text>
 

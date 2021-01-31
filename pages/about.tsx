@@ -9,7 +9,7 @@ const AboutPage = () => {
     <>
       <NextSeo
         title="About me"
-        description="I am full stack javascript developer and I am bootstrapping products with JAM Stack in indie way."
+        description="I am full stack javascript developer and I am bootstrapping products with Jamstack in indie way."
       />
       <MainContainer>
         <Heading mt={[0, 6]} size="2xl" as="h1">
@@ -35,7 +35,7 @@ const AboutPage = () => {
           </TextLink>{" "}
           and{" "}
           <TextLink href={"https://jamstack.org/what-is-jamstack/"} isExternal>
-            JAM Stack
+            Jamstack
           </TextLink>{" "}
           architecture. Apart from Javascript I like to explore in relational
           databases or play around in DevOps area, mainly with AWS. Besides

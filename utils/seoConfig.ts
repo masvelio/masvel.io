@@ -1,7 +1,7 @@
-const title = "JAM Stack indie maker bootstrapping products";
+const title = "Jamstack indie maker bootstrapping products";
 const titleTemplate = "%s | Masvel";
 const description =
-  "I build and ship products using JAM Stack architecture. I describe the whole process in a transparent way to in order to generate passive income ultimately.";
+  "I build and ship products using Jamstack architecture. I describe the whole process in a transparent way to in order to generate passive income ultimately.";
 
 const seoConfig = {
   title,
