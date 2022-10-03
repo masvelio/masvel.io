@@ -1,4 +1,4 @@
-# [Masvel.io](https://masvel.io)
+# Masvel.io
 
 This is a repository for my personal blog. The idea behind the blog was to share the process of creating the product, starting from the idea, through the conceprual work, development, untill the release of the product.
 
